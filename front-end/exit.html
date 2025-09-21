@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exits Algorithm</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <img src="/resources/CreedCap-Logo.png" alt="Company Logo" id="logo" />
+      </div>
+
+      <div id="searchForm">
+        <form id="mandaForm" data-mode="exit">
+          <div>
+            <label for="industryInput">Industry</label>
+            <input
+              type="text"
+              id="industryInput"
+              name="industry"
+              placeholder="Enter Industry (e.g., SaaS, Biotech)"
+              required
+            />
+          </div>
+          <div>
+            <label for="geographyInput">Geography</label>
+            <input
+              type="text"
+              id="geographyInput"
+              name="geography"
+              placeholder="Enter Geography (e.g., India)"
+              required
+            />
+          </div>
+          <button type="submit">Find Exit Targets</button>
+        </form>
+      </div>
+
+      <h2>Potential Exit Targets:</h2>
+      <div id="results"></div>
+    </div>
+
+    <script src="js/manda.js"></script> <!-- Remove type="module" -->
+  </body>
+</html>

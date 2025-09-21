@@ -1,0 +1,52 @@
+Investors API:
+
+URL(production):	https://tracxn.com/api/2.2/investors
+URL(Sandbox):		https://tracxn.com/api/2.2/sandbox/investors
+Method:			Post
+
+[HEADER]
+accessToken:		[accessToken given by Tracxn]
+Content-Type:		application/json
+
+[BODY]
+filter:	[criteria by which you want to filter investors]
+sort: 	[criteria by which you wnat the investors sorted]
+from:	[pagination offset] Default value = 0.
+size:	[Number of Investors to be returned in each API response]. Default and maximum allowed value = 20. Use only if you want to fetch fewer than 20 Investors.
+
+
+Applicable Filters are as follows:
+
+Investors Filters:-
+Investor Name:	investorDomainName: ["sequoiacap.com"]; Applicable only for institutional & corporate investors. Note: Only normalized domains (E.g: "tracxn.com") are supported. Please remove 'https', www' and '/' before passing the parameter
+Investor Type:	investorType: ["Corporate Investors"]; could be institutional, corporate or angel.
+Investor Founded Year:	investorFoundedYear: ["2008", "2009"]
+Investor Feed:	investorFeedName: ["Venture Capital Funds", "Private Equity Funds"]
+Investor Business Model:	investorBusinessModelId:["55a4afb7e4b0c3e220d405ce"]. //not sure what exactly it is. lemme know if you have any thoughts.
+
+Investor Location Filters:-
+Investor City:	investorCity: ["New York City", "San Francisco"]
+Investor State: investorState: ["Califormia", "Massachusetts"]
+Investor Country: investorCountry: ["United Kingdom", "Germany"]
+
+Portfolio Company Filters:-
+Domain:	domain:["domain1", "domain2"]; Returns list of investors who have invested in the mentioned domains. Note: Only normalized domains (E.g: "tracxn.com") are supported. Please remove 'https', www' and '/' before passing the parameter
+Name: 	companyName: ["Grab"]; Returns list of investors who have invested in the mentioned company name. Note: Applicable only for institutional & corporate investors.
+Founded Year: foundedYear: [2008, 2009]
+Company Stage: companyStage: ["Unfunded", "Seed", "Early-Stage Funded", "Late-Stage Funded", "Acquired"]; Returns list of investors with the mentioned current stage of portfolio companies. Company Stage filter "Early-Stage Funded" will include investors with portfolio companies in "Series A" & "Series B" & "Late-Stage Funded" will include investors with portfolio companies in Series C+ funding. Company Current Stage filter "Series A", "Series B", "Series C"... could also be used to filter investors with portfolio companies based on specific funding round.
+
+Portfolio Company Analyst Rating Filters:-
+Special Flags:	specialFlags:{"consumer":["yes"], "enterprise": ["no"], "saas":["untagged"]}
+Soonicorn Club Flag:	soonicornFlag: ["MINICORN", "UNICORN"]
+
+Portfolio Compay - Exits Filters:-
+IPO Date:	ipoDate: {"min": "01/01/2016", "max":"30/06/2016"}
+
+Transaction Filter:-
+Funding Round Name:	transactionFundingRoundCategory: ["Series B", "Series C"]; Returns list of investors who invest in a particular funding round category
+Round Amount:	transactionFundingRoundAmount: {"min":1000000, "max":1000000000000}; Returns list of investors who invest in the specified round amount range
+Date of Funding Round:	transactionFundingRoundDate: {"min":"01/01/2016", "max":"30/06/2016"}; Returns list of investors who have had funding rounds in the specified date range
+is Lead Investor:	isLeadInvestor: true; Returns list of investors who have led a funding round.
+
+
+Tracxn pwd: @Gandalfthegrey2003

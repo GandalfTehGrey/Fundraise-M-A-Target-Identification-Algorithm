@@ -1,0 +1,24 @@
+Tracxn API Sandbox is a free and fully-featured environment that allows you to safely test prototypes and integrations.
+
+The sandbox environment gives you access to the Cybersecurity feed and all the companies, funding rounds, acquistions, investors, sectors (Practice Area/Feed/Business Models) under it.
+
+APIs in the Sandbox environment match those in production - all filters, sorts are supported and it returns the same API response, making it easy to move into the production phase.
+
+After the testing/integration is complete, you only need to change the endpoint URL from the sandbox to Production endpoint:
+eg. For Companies API, change from https://tracxn.com/api/2.2/sandbox/companies/ to https://tracxn.com/api/2.2/companies/
+
+__The Sandbox API__
+
+EndPoint : eg. https://tracxn.com/api/2.2/sandbox/companies, https://tracxn.com/api/2.2/sandbox/investors etc
+Token:	<same token for Sandbox and Production provided by tracxn>
+Filters: All filters are applied on Companies, Transactions etc which are tagged to Cybersecurity feed. eg. Passing company funding filter "totalMoneyRaised": {"min":2000000, "max":20000000} (with no feedName filter) will return all Companies/Transactions/Acquisitions under Cybersecurity feed that have raised funding between $2M and $20M. eg. Passing sector filter "feedName": ["HRTech"] will return all Companies/Transactions/Investors etc under Cybersecurity feed that are also tagged to "HRTech" feed.
+
+
+__Rate Limiting__
+In order to protect our servers from being overloaded and to ensure high quality service to all our customers, Tracxn limits the number of API calls made by a user.
+All rate limits are on a per-user basis.
+The following are the per user limits for different time periods:
+1. 1000 API calls per hour
+2. 10,000 API calls per day
+Note: These limits are subject to change without notice. They will however be updated in this documentation.
+Exceeding the rate limit will cause an HTTP 429 error "Too Many Requests". Your app should respond by spacing out consecutive requests.

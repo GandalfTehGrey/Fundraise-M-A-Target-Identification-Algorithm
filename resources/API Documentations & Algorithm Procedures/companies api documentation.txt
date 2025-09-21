@@ -1,0 +1,19 @@
+Companies API
+
+URL (Production):	https://platform.tracxn.com/api/2.2/companies
+URL (Sandbox):		https://platform.tracxn.com/api/2.2/sandbox/companies
+Method:			POST
+
+[HEADER]
+accessToken:	[accessToken as given by Tracxn]
+Content-Type:	application/json
+
+[BODY]
+filter:	[Criteria by which you want to filter Companies]
+sort: 	[Criteria by which you want the Companies sorted]
+from: 	[Pagination offset]; Default value = 0
+size: 	[Number of Companies to be returned in each API response]; Default and maximum allowed value = 20. Use only if you want to fetch fewer than 20 Companies.
+
+Applicable Filters are as follows:
+
+Competitor:	competitorOf: ["tracxn.com"]; Note: Only normalized domains (E.g: "tracxn.com") are supported. Please remove 'https', www' and '/' before passing the parameter

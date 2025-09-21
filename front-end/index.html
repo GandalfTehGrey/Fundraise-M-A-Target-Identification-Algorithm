@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CreedCap Platform</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Additional styles for the landing page */
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f2f5;
+      }
+      .mode-selector {
+        text-align: center;
+      }
+      .mode-button {
+        background-color: #014235;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        margin: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 200px; /* Fixed width for all buttons */
+      }
+      .mode-button:hover {
+        background-color: #017a5e;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mode-selector">
+      <h1>Welcome to CreedCap</h1>
+      <button class="mode-button" onclick="navigate('fundraise')">Fundraise</button>
+      <button class="mode-button" onclick="navigate('merger')">Mergers</button>
+      <button class="mode-button" onclick="navigate('acquisition')">Acquisitions</button>
+      <button class="mode-button" onclick="navigate('exit')">Exits</button>
+    </div>
+
+    <script>
+      // Function to handle button clicks
+      function navigate(mode) {
+        if (mode === 'fundraise') {
+          window.location.href = 'fundraise.html'; // Redirect to fundraising page
+        } else if (mode === 'merger') {
+          window.location.href = 'merger.html'; // Redirect to mergers page
+        } else if (mode === 'acquisition') {
+          window.location.href = 'acquisition.html'; // Redirect to acquisitions page
+        } else if (mode === 'exit') {
+          window.location.href = 'exit.html'; // Redirect to exits page
+        }
+      }
+    </script>
+  </body>
+</html>

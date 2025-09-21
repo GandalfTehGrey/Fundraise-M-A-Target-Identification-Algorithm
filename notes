@@ -1,0 +1,14 @@
+files
+Backend
+- app.js
+- investors.js
+Frontend
+- index.html
+- script.js
+- style.css
+
+fully functional tier 1 -> industry and tier 1 -> geography subfilters.
+
+returns 200 successful api responses.
+
+UI is great too!

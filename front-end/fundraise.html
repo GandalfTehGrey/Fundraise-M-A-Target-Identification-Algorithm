@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CreedCap Algorithm</title>
+    <script src="js/fundraise.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <img src="/resources/CreedCap-Logo.png" alt="Company Logo" id="logo" />
+      </div>
+
+      <div id="searchForm">
+        <form id="searchForm">
+          <div>
+            <label for="clientDomainInput">Client Domain</label>
+            <input
+              type="text"
+              id="clientDomainInput"
+              name="clientDomain"
+              placeholder="Enter Client Domain (e.g. tracxn.com)"
+            />
+          </div>
+          <div>
+            <label for="stageInput">Investment Stage:</label>
+            <select id="stageInput" name="stage">
+              <option value="">Select Stage</option>
+              <option value="Seed">Seed</option>
+              <option value="Series A">Series A</option>
+              <option value="Series B">Series B</option>
+            </select>
+          </div>
+          <div>
+            <label for="ticketSizeInput">Ticket Size:</label>
+            <input
+              type="number"
+              id="ticketSizeInput"
+              name="ticketSize"
+              placeholder="Enter Ticket Size"
+            />
+          </div>
+          <div>
+            <label for="locationInput">Investor Location</label>
+            <input
+              type="text"
+              id="locationInput"
+              name="location"
+              placeholder="Enter Investor Country"
+            />
+          </div>
+          <div>
+            <label for="investorTypeInput">Investor Type:</label>
+            <select id="investorTypeInput" name="investorType">
+              <option value="">Select Investor Type</option>
+              <option value="Corporate Investors">Corporate Investors</option>
+              <option value="Angel Investors">Angel Investors</option>
+            </select>
+          </div>
+          <div>
+            <label for="investorFeedNameInput">Investor Feed:</label>
+            <select id="investorFeedNameInput" name="investorFeedName">
+              <option value="">Select Investor Feed</option>
+              <option value="Venture Capital Funds">Venture Capital Funds</option>
+              <option value="Private Equity Funds">Private Equity Funds</option>
+            </select>
+          </div>
+          <button type="submit">Search Investors</button>
+        </form>
+      </div>
+    </div>
+
+    <h2>Potential Investors:</h2>
+    <div id="results"></div>
+
+    <h2>Competitor Investors:</h2>
+    <div id="competitorResults"></div>
+  </body>
+</html>

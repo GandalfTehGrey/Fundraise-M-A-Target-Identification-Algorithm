@@ -1,0 +1,125 @@
+<!-- front-end/acquisition.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acquisitions Algorithm</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="logo-container">
+        <img src="/resources/CreedCap-Logo.png" alt="CreedCap" id="logo" />
+        <div class="logo-overlay"></div>
+      </div>
+
+      <div class="search-section">
+        <div class="form-container">
+          <h1 class="form-title">Strategic Acquisition Finder</h1>
+          <form id="mandaForm" data-mode="acquisition">
+            <div class="input-group">
+              <div class="floating-input">
+                <input
+                  type="text"
+                  id="industryInput"
+                  name="industry"
+                  required
+                />
+                <label for="industryInput">Industry</label>
+                <i class="fas fa-industry input-icon"></i>
+              </div>
+              
+              <div class="floating-input">
+                <input
+                  type="text"
+                  id="geographyInput"
+                  name="geography"
+                  required
+                />
+                <label for="geographyInput">Geography</label>
+                <i class="fas fa-globe-asia input-icon"></i>
+              </div>
+            </div>
+            <div class="floating-input">
+              <input
+                type="text"
+                id="clientDescriptionInput"
+                name="clientDescription"
+                required
+              />
+              <label for="clientDescriptionInput">Client Description</label>
+              <i class="fas fa-building input-icon"></i>
+            </div>
+
+            <button type="submit" class="search-button">
+              <span class="button-text">Analyze Targets</span>
+              <div class="button-loader">
+                <div class="loader-dot"></div>
+                <div class="loader-dot"></div>
+                <div class="loader-dot"></div>
+              </div>
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="synergy-reference">
+        <h3>Synergy Categories</h3>
+        <div class="synergy-list">
+          <div class="synergy-item product-service-fit">
+            <span class="synergy-color"></span>
+            <span class="synergy-name">Product/Service Fit</span>
+            <span class="synergy-definition">Does the target’s product help the client’s customers?</span>
+          </div>
+          <div class="synergy-item geographic-expansion">
+            <span class="synergy-color"></span>
+            <span class="synergy-name">Geographic Expansion</span>
+            <span class="synergy-definition">Does the target operate where the client wants to grow?</span>
+          </div>
+          <div class="synergy-item supply-chain-control">
+            <span class="synergy-color"></span>
+            <span class="synergy-name">Supply Chain Control</span>
+            <span class="synergy-definition">Does the target own factories/tech the client needs?</span>
+          </div>
+          <div class="synergy-item cost-savings">
+            <span class="synergy-color"></span>
+            <span class="synergy-name">Cost Savings</span>
+            <span class="synergy-definition">Can merging cut expenses (e.g., layoffs, shared offices)?</span>
+          </div>
+          <div class="synergy-item tech-ip">
+            <span class="synergy-color"></span>
+            <span class="synergy-name">Tech/IP</span>
+            <span class="synergy-definition">Does the target have patents the client wants?</span>
+          </div>
+        </div>
+      </div>
+      <div class="results-section">
+        <div class="results-header">
+          <h2>Potential Acquisition Targets</h2>
+          <div class="results-counter">
+            <span class="current-count">0</span>/<span class="total-count">0</span> companies
+          </div>
+        </div>
+        <div id="results" class="results-grid"></div>
+      </div>
+    </div>
+    <div class="process-steps">
+      <div class="step tier1 active">Tier 1: Industry & Geography Filter</div>
+      <div class="step tier2">Tier 2: Strategic Fit Analysis</div>
+      <div class="step tier3">Tier 3: Financial Viability</div>
+      <div class="step tier4">Tier 4: Banker Review</div>
+    </div>
+    
+    <div class="export-container">
+      <button id="exportExcel" class="export-button">
+        <i class="fas fa-file-excel"></i> Export to Excel
+      </button>
+    </div>
+
+    <script src="js/manda.js"></script>
+  </body>
+</html>
