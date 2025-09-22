@@ -5,57 +5,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CreedCap Platform</title>
     <link rel="stylesheet" href="style.css" />
-    <style>
-      /* Additional styles for the landing page */
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        background-color: #f0f2f5;
-      }
-      .mode-selector {
-        text-align: center;
-      }
-      .mode-button {
-        background-color: #014235;
-        color: white;
-        border: none;
-        padding: 15px 30px;
-        margin: 10px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        width: 200px; /* Fixed width for all buttons */
-      }
-      .mode-button:hover {
-        background-color: #017a5e;
-      }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   </head>
   <body>
-    <div class="mode-selector">
-      <h1>Welcome to CreedCap</h1>
-      <button class="mode-button" onclick="navigate('fundraise')">Fundraise</button>
-      <button class="mode-button" onclick="navigate('merger')">Mergers</button>
-      <button class="mode-button" onclick="navigate('acquisition')">Acquisitions</button>
-      <button class="mode-button" onclick="navigate('exit')">Exits</button>
+    <!-- Complete redesign with modern layout and styling -->
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="logo-section">
+          <img src="resources/CreedCap-Logo.png" alt="CreedCap Logo" class="hero-logo" />
+        </div>
+        
+        <div class="hero-text">
+          <h1 class="hero-title">Welcome to CreedCap</h1>
+          <p class="hero-subtitle">Your comprehensive platform for fundraising, mergers, acquisitions, and strategic exits</p>
+        </div>
+
+        <div class="navigation-grid">
+          <div class="nav-card" onclick="navigate('fundraise')">
+            <div class="nav-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3 class="nav-title">Fundraise</h3>
+            <p class="nav-description">Connect with investors and secure funding for your business growth</p>
+            <div class="nav-arrow">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+
+          <div class="nav-card" onclick="navigate('merger')">
+            <div class="nav-icon">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h3 class="nav-title">Mergers</h3>
+            <p class="nav-description">Identify strategic merger opportunities to expand your market presence</p>
+            <div class="nav-arrow">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+
+          <div class="nav-card" onclick="navigate('acquisition')">
+            <div class="nav-icon">
+              <i class="fas fa-building"></i>
+            </div>
+            <h3 class="nav-title">Acquisitions</h3>
+            <p class="nav-description">Discover acquisition targets that align with your strategic objectives</p>
+            <div class="nav-arrow">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+
+          <div class="nav-card" onclick="navigate('exit')">
+            <div class="nav-icon">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <h3 class="nav-title">Exits</h3>
+            <p class="nav-description">Plan and execute successful exit strategies for maximum value</p>
+            <div class="nav-arrow">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="platform-features">
+          <div class="feature-item">
+            <i class="fas fa-shield-alt"></i>
+            <span>Secure & Confidential</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-chart-bar"></i>
+            <span>Data-Driven Insights</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-users"></i>
+            <span>Expert Network</span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script>
-      // Function to handle button clicks
+      // Function to handle button clicks - maintaining original functionality
       function navigate(mode) {
         if (mode === 'fundraise') {
-          window.location.href = 'fundraise.html'; // Redirect to fundraising page
+          window.location.href = 'fundraise.html';
         } else if (mode === 'merger') {
-          window.location.href = 'merger.html'; // Redirect to mergers page
+          window.location.href = 'merger.html';
         } else if (mode === 'acquisition') {
-          window.location.href = 'acquisition.html'; // Redirect to acquisitions page
+          window.location.href = 'acquisition.html';
         } else if (mode === 'exit') {
-          window.location.href = 'exit.html'; // Redirect to exits page
+          window.location.href = 'exit.html';
         }
       }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('.nav-card');
+        
+        cards.forEach(card => {
+          card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px)';
+          });
+          
+          card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+          });
+        });
+      });
     </script>
   </body>
 </html>
