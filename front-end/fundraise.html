@@ -6,77 +6,331 @@
     <title>CreedCap Algorithm</title>
     <script src="js/fundraise.js"></script>
     <link rel="stylesheet" href="style.css" />
-    
+    <style>
+      body {
+        font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        background-color: white;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+      }
+      
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px;
+      }
+      
+      .logo {
+        height: 40px;
+        width: auto;
+        cursor: pointer;
+      }
+      
+      .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        margin-bottom: 16px;
+        background-color: #f3f4f6;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        color: #374151;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+      }
+      
+      .search-section {
+        background-color: #DAFBE6;
+        border-radius: 10px;
+        padding: 32px;
+        margin-bottom: 32px;
+      }
+      
+      .search-title {
+        font-size: 24px;
+        font-weight: bold;
+        color: #101828;
+        margin-bottom: 12px;
+      }
+      
+      .form-group {
+        margin-bottom: 20px;
+      }
+      
+      .form-label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        color: #334155;
+        margin-bottom: 8px;
+      }
+      
+      .form-input, .form-select {
+        width: 100%;
+        height: 44px;
+        padding: 0 12px;
+        font-size: 14px;
+        color: #101828;
+        background-color: transparent;
+        border: 1px solid #CDEED6;
+        border-radius: 6px;
+      }
+      
+      .form-input:focus, .form-select:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(1, 102, 48, 0.2);
+      }
+      
+      .submit-button {
+        width: 100%;
+        height: 48px;
+        background-color: #016630;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+      
+      .submit-button:hover {
+        background-color: #014f29;
+      }
+      
+      .submit-button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      
+      .spinner {
+        animation: spin 1s linear infinite;
+        border: 2px solid white;
+        border-top: 2px solid transparent;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      .results-section {
+        margin-bottom: 32px;
+      }
+      
+      .results-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #101828;
+        margin-bottom: 16px;
+      }
+      
+      .investor-card {
+        background-color: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 16px;
+        margin-bottom: 16px;
+      }
+      
+      .investor-name {
+        font-weight: 600;
+        color: #101828;
+        margin-bottom: 8px;
+      }
+      
+      .investor-description {
+        color: #334155;
+        font-size: 14px;
+      }
+      
+      .no-results {
+        text-align: center;
+        padding: 24px;
+        color: #334155;
+      }
+    </style>
   </head>
   <body>
-    <div id="container">
-      <div id="header">
-        <img src="/resources/CreedCap-Logo.png" alt="Company Logo" id="logo" />
-      </div>
+    <div class="container">
+      <header class="header">
+        <a href="/">
+          <img 
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/CreedCap-Logo%281%29-BWP2yDW2zvkM0EoxZ7oKbpuE3jPUMf.png" 
+            alt="CREEDCAP" 
+            class="logo"
+          />
+        </a>
+      </header>
 
-      <div id="searchForm">
-        <form id="searchForm">
-          <div>
-            <label for="clientDomainInput">Client Domain</label>
-            <input
-              type="text"
-              id="clientDomainInput"
-              name="clientDomain"
-              placeholder="Enter Client Domain (e.g. tracxn.com)"
-            />
+      <main>
+        <a href="/" class="back-button">← Back</a>
+
+        <section class="search-section">
+          <h1 class="search-title">Find Investors</h1>
+
+          <form id="searchForm">
+            <!-- Client Domain Field -->
+            <div class="form-group">
+              <label for="clientDomain" class="form-label">Client Domain</label>
+              <input
+                type="text"
+                id="clientDomain"
+                name="clientDomain"
+                placeholder="Enter Client Domain (e.g. tracxn.com)"
+                class="form-input"
+              />
+            </div>
+
+            <!-- Stage Field -->
+            <div class="form-group">
+              <label for="stage" class="form-label">Stage</label>
+              <select id="stage" name="stage" class="form-select" required>
+                <option value="">Select Stage</option>
+                <option value="Seed">Seed</option>
+                <option value="Series A">Series A</option>
+                <option value="Series B">Series B</option>
+              </select>
+            </div>
+
+            <!-- Ticket Size Field -->
+            <div class="form-group">
+              <label for="ticketSize" class="form-label">Ticket Size (USD)</label>
+              <input
+                type="text"
+                id="ticketSize"
+                name="ticketSize"
+                placeholder="1000000"
+                class="form-input"
+              />
+            </div>
+
+            <!-- Location Field -->
+            <div class="form-group">
+              <label for="location" class="form-label">Location</label>
+              <input
+                type="text"
+                id="location"
+                name="location"
+                placeholder="San Francisco, CA"
+                class="form-input"
+              />
+            </div>
+
+            <!-- Investor Type Field -->
+            <div class="form-group">
+              <label for="investorType" class="form-label">Investor Type</label>
+              <select id="investorType" name="investorType" class="form-select">
+                <option value="">Select Investor Type</option>
+                <option value="Corporate Investors">Corporate Investors</option>
+                <option value="Angel Investors">Angel Investors</option>
+              </select>
+            </div>
+
+            <!-- Investor Feed Field -->
+            <div class="form-group">
+              <label for="investorFeedName" class="form-label">Investor Feed</label>
+              <select id="investorFeedName" name="investorFeedName" class="form-select">
+                <option value="">Select Investor Feed</option>
+                <option value="Venture Capital Funds">Venture Capital Funds</option>
+                <option value="Private Equity Funds">Private Equity Funds</option>
+              </select>
+            </div>
+
+            <button type="submit" class="submit-button" id="submitButton">
+              Find Investors
+            </button>
+          </form>
+        </section>
+
+        <div class="results-section">
+          <h2 class="results-title">Potential Investors:</h2>
+          <div id="results" class="no-results">
+            <p>No potential investors found yet. Use the form above to search for investors.</p>
           </div>
-          <div>
-            <label for="stageInput">Investment Stage:</label>
-            <select id="stageInput" name="stage">
-              <option value="">Select Stage</option>
-              <option value="Seed">Seed</option>
-              <option value="Series A">Series A</option>
-              <option value="Series B">Series B</option>
-            </select>
+        </div>
+
+        <div class="results-section">
+          <h2 class="results-title">Competitor Investors:</h2>
+          <div id="competitorResults" class="no-results">
+            <p>No competitor investors found yet. Use the form above to search for investors.</p>
           </div>
-          <div>
-            <label for="ticketSizeInput">Ticket Size:</label>
-            <input
-              type="number"
-              id="ticketSizeInput"
-              name="ticketSize"
-              placeholder="Enter Ticket Size"
-            />
-          </div>
-          <div>
-            <label for="locationInput">Investor Location</label>
-            <input
-              type="text"
-              id="locationInput"
-              name="location"
-              placeholder="Enter Investor Country"
-            />
-          </div>
-          <div>
-            <label for="investorTypeInput">Investor Type:</label>
-            <select id="investorTypeInput" name="investorType">
-              <option value="">Select Investor Type</option>
-              <option value="Corporate Investors">Corporate Investors</option>
-              <option value="Angel Investors">Angel Investors</option>
-            </select>
-          </div>
-          <div>
-            <label for="investorFeedNameInput">Investor Feed:</label>
-            <select id="investorFeedNameInput" name="investorFeedName">
-              <option value="">Select Investor Feed</option>
-              <option value="Venture Capital Funds">Venture Capital Funds</option>
-              <option value="Private Equity Funds">Private Equity Funds</option>
-            </select>
-          </div>
-          <button type="submit">Search Investors</button>
-        </form>
-      </div>
+        </div>
+      </main>
     </div>
 
-    <h2>Potential Investors:</h2>
-    <div id="results"></div>
-
-    <h2>Competitor Investors:</h2>
-    <div id="competitorResults"></div>
+    <script>
+      document.getElementById('searchForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const submitButton = document.getElementById('submitButton');
+        const originalText = submitButton.innerHTML;
+        
+        // Show loading state
+        submitButton.innerHTML = '<div class="spinner"></div> Finding Investors...';
+        submitButton.disabled = true;
+        
+        const formData = {
+          clientDomain: document.getElementById('clientDomain').value,
+          stage: document.getElementById('stage').value,
+          ticketSize: document.getElementById('ticketSize').value,
+          location: document.getElementById('location').value,
+          investorType: document.getElementById('investorType').value,
+          investorFeedName: document.getElementById('investorFeedName').value,
+        };
+        
+        try {
+          const response = await fetch('/api/investors', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+          });
+          
+          if (response.ok) {
+            const data = await response.json();
+            displayResults(data.investors || [], 'results');
+            displayResults(data.competitorInvestors || [], 'competitorResults');
+          }
+        } catch (error) {
+          console.error('Error fetching investors:', error);
+        } finally {
+          submitButton.innerHTML = originalText;
+          submitButton.disabled = false;
+        }
+      });
+      
+      function displayResults(investors, containerId) {
+        const container = document.getElementById(containerId);
+        
+        if (investors.length > 0) {
+          container.innerHTML = investors.map(investor => `
+            <div class="investor-card">
+              <h3 class="investor-name">${investor.name}</h3>
+              <p class="investor-description">${investor.description}</p>
+            </div>
+          `).join('');
+        } else {
+          container.innerHTML = '<p class="no-results">No investors found for the selected criteria.</p>';
+        }
+      }
+    </script>
   </body>
 </html>

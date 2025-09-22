@@ -121,4 +121,3 @@ function analyzeSynergy(description, synergyDictionary) {
   
   // Export functions if required (e.g., for module use in Node.js, etc.)
   export { initializeSynergyLogic, analyzeSynergy, analyzeMultipleCompanies, displaySynergyAnalysis };
-  

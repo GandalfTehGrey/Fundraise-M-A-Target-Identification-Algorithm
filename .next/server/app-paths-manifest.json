@@ -1,0 +1,13 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/acquisition/page": "app/acquisition/page.js",
+  "/api/exit-targets/route": "app/api/exit-targets/route.js",
+  "/api/acquisition-targets/route": "app/api/acquisition-targets/route.js",
+  "/acquisitions/page": "app/acquisitions/page.js",
+  "/api/investors/route": "app/api/investors/route.js",
+  "/api/merger-targets/route": "app/api/merger-targets/route.js",
+  "/exit/page": "app/exit/page.js",
+  "/fundraise/page": "app/fundraise/page.js",
+  "/merger/page": "app/merger/page.js",
+  "/page": "app/page.js"
+}
