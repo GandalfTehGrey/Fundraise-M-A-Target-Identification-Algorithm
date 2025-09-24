@@ -2,7 +2,7 @@ const axios = require('axios');
 
 // Function to fetch investors based on client criteria
 async function getInvestors(clientCriteria) {
-    const tracxnApiKey = 'b9c7a690-7940-4d87-a1fb-e38ed19500fa'; // Updated API token
+    const tracxnApiKey = ''; // Updated API token (removed for security reasons)
     const filter = buildTracxnFilter(clientCriteria); // Build filter dynamically
     const size = 20; // Number of results per API call
     let from = 0; // Pagination offset
@@ -85,7 +85,7 @@ function buildTracxnFilter(clientCriteria) {
 
 // Function to fetch competitors for a client domain
 async function getCompetitors(clientDomain) {
-    const tracxnApiKey = 'b9c7a690-7940-4d87-a1fb-e38ed19500fa'; // Updated API token
+    const tracxnApiKey = ''; // Updated API token (removed for security reasons)
 
     try {
         console.log('Fetching competitors for domain:', clientDomain);
@@ -112,7 +112,7 @@ async function getCompetitors(clientDomain) {
 
 // Function to fetch competitor-related investors
 async function getCompetitorInvestors(competitorDomains) {
-    const tracxnApiKey = 'b9c7a690-7940-4d87-a1fb-e38ed19500fa'; // Updated API token
+    const tracxnApiKey = ''; // Updated API token (removed for security reasons)
     const size = 20; // Results per page
     let from = 0; // Pagination offset
     let allInvestors = []; // Array to store results
