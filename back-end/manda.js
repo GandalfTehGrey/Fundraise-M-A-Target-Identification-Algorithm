@@ -1,5 +1,5 @@
 const axios = require('axios');
-const CRUNCHBASE_API_KEY = 'db6d2410400340ac17babeb8e37a30e0'; 
+const CRUNCHBASE_API_KEY = ''; // Updated API token (removed for security reasons)
 
 async function getCompaniesByIndustryAndGeography(industry, geography) {
   try {

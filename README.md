@@ -1,4 +1,4 @@
-## CreedCap — Fundraise, M&A, and Target Identification Platform
+## Fundraise, M&A, and Target Identification Platform - Made for CreedCap
 
 ![CreedCap Logo](public/images/design-mode/CreedCap-Logo.png)
 
